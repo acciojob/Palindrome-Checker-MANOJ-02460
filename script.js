@@ -2,9 +2,11 @@
 
 function palindrome(str){
 
-	for(let i=0; i<str.length; i++){
+	let x = str.toLowerCase().trim()
 
-		if(str[i] !== str[str.length-1-i]){
+	for(let i=0; i<x.length; i++){
+
+		if(x[i] !== x[x.length-1-i]){
 			return false
 		}
 	}
