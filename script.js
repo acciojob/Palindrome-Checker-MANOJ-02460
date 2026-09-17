@@ -2,16 +2,30 @@
 
 function palindrome(str){
 
-	let x = str.toLowerCase().trim()
+	let x = str.toLowerCase()
+	let left = 0;
+	let right = x.length-1;
 
-	for(let i=0; i<x.length; i++){
+	while (left < right) {
 
-		if(x[i] !== x[x.length-1-i]){
-			return false
+		if(!isAlphanumeric(x[left])){
+			left++
+		}else if(!isAlphanumeric(x[right])){
+			right--
+		}else{
+			if(left !== right){
+				return false
+			}
 		}
+
+		left++;
+		right--;
 	}
 
-	return true
+
+	function isAlphanumeric(char){
+		return (char >= "a" && char <= "z") || (char >= '0' && char <= '9')
+	}
 
 }
 module.exports = palindrome
